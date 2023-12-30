@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createData } from "../store/signup/createData.thunk";
-
 import { Link, useNavigate } from "react-router-dom";
+import "./login.css";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -59,27 +59,31 @@ const RegisterPage = () => {
   //  J S X ___
 
   return (
-    <div>
-      <form className="form-container" onSubmit={handleSubmit}>
-        <h1> Student </h1>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <h1> Register </h1>
         <input
           type="text"
+          className="input-register mg"
           placeholder="Full Name"
           onChange={(e) => setFullName(e.target.value)}
           ref={fullNameRef}
         />
         <input
           type="email"
+          className="input-register mg"
           placeholder="Email  Adress"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
+          className="input-register mg"
           placeholder="Enter Password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
+          className="input-register mg"
           placeholder="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
@@ -94,14 +98,14 @@ const RegisterPage = () => {
           <option value="UI/UX Design">UI/UX Design</option>
           <option value="QA/DIGITAL PRODUCTS">QA/DIGITAL PRODUCTS</option>
         </select>
-        <button
+        <button className="btn"
           disabled={
             !fullName || !passWord || !confirmPassword || !selectedValue
           }
         >
-          Sing Up
+          Sign Up
         </button>
-        <Link to={"/login"}> Already have an account? Login </Link>
+        <Link className="alreadyhaveaccount" to={"/login"}> Already have an account? </Link>
       </form>
     </div>
   );
