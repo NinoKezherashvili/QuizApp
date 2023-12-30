@@ -1,0 +1,90 @@
+.createquiz {
+  display: flex;
+  height: 100vh;
+  margin-top: 30px;
+}
+
+.dFlex {
+  display: flex;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.qButton {
+  width: 200px;
+  height: 120px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  border: 0;
+  margin-bottom: 20px;
+}
+
+.addQuiz {
+  margin-left: 30px;
+}
+
+.qInput {
+  width: 1125px;
+  height: 332px;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: #d9d9d9;
+  margin-bottom: 30px;
+}
+
+.aInput {
+  width: 500px;
+  height: 100px;
+  border-radius: 15px;
+  background-color: #d9d9d9;
+  border: transparent;
+}
+
+.f30 {
+  font-size: 36px;
+}
+
+.f200 {
+  font-family: Inter;
+  font-weight: 200;
+}
+
+.cBlack {
+  color: black;
+  text-decoration: none;
+}
+
+.answersInputs {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 40px;
+}
+
+.answerFormat {
+  display: flex;
+}
+
+.answerRadio {
+  margin-right: 15px;
+}
+
+.btnSaveQuiz {
+  border: 0;
+  padding: 5px;
+  width: 90px;
+  border-radius: 7px;
+  position: fixed;
+  bottom: 50px;
+  font-family: Inter;
+  font-weight: 200;
+  font-weight: 400;
+}
+
+.btnSaveQuiz:hover {
+  background-color: #4cdda3;
+  cursor: pointer;
+ 
+}

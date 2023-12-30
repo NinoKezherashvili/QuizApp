@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import styles from "../styles/createquiz.module.css";
+import { Link } from "react-router-dom";
 
 const Createquiz = () => {
   const [questions, setQuestions] = useState([
@@ -30,7 +32,6 @@ const Createquiz = () => {
   };
 
   const handleAddQuestion = () => {
-   
     setQuestions((prevQuestions) => [
       ...prevQuestions,
       { text: "", answers: ["", "", "", ""], correctAnswerIndex: null },
@@ -61,56 +62,78 @@ const Createquiz = () => {
 
   return (
     <>
-      <div className="createquiz">
-        <aside className="settings">
+      <nav>
+        <Link
+          to="/"
+          className={`${styles.f30} ${styles.f200} ${styles.cBlack}`}
+        >
+          {" "}
+          Quizz
+        </Link>
+      </nav>
+
+      <div className={styles.createquiz}>
+        <aside className={styles.settings}>
           {questions.map((_, index) => (
-            <button key={index} onClick={() => setSelectedQuestionIndex(index)}>
+            <button
+              key={index}
+              className={styles.qButton}
+              onClick={() => setSelectedQuestionIndex(index)}
+            >
               {index + 1}
             </button>
           ))}
-          <button onClick={handleAddQuestion}>+</button>
+          <button onClick={handleAddQuestion} className={styles.qButton}>
+            +
+          </button>
+          <button className= {styles.btnSaveQuiz} onClick={handleSave}>Save</button>
         </aside>
 
-        <form className="addquiz">
+        <form className={styles.addQuiz}>
           <input
             type="text"
+            className={styles.qInput}
             placeholder="question"
             value={questions[selectedQuestionIndex].text}
             onChange={(e) =>
               handleQuestionChange(selectedQuestionIndex, e.target.value)
             }
           />
+          <div className={styles.answersInputs}>
+            {questions[selectedQuestionIndex].answers.map(
+              (answer, answerIndex) => (
+                <div key={answerIndex} className={styles.answerFormat}>
+                  <input
+                    type="radio"
+                    name="correctAnswer"
+                    className={styles.answerRadio}
+                    id={`radio${answerIndex}`}
+                    checked={
+                      questions[selectedQuestionIndex].correctAnswerIndex ===
+                      answerIndex
+                    }
+                    onChange={() => handleRadioChange(answerIndex)}
+                  />
+                  <input
+                    key={answerIndex}
+                    className={styles.aInput}
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder={`answer ${answerIndex + 1}`}
+                    value={answer}
+                    onChange={(e) =>
+                      handleAnswerChange(answerIndex, e.target.value)
+                    }
+                  />
 
-          {questions[selectedQuestionIndex].answers.map(
-            (answer, answerIndex) => (
-              <div key={answerIndex}>
-                <input
-                  key={answerIndex}
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder={`answer ${answerIndex + 1}`}
-                  value={answer}
-                  onChange={(e) =>
-                    handleAnswerChange(answerIndex, e.target.value)
-                  }
-                />
-                <input
-                  type="radio"
-                  name="correctAnswer"
-                  id={`radio${answerIndex}`}
-                  checked={
-                    questions[selectedQuestionIndex].correctAnswerIndex ===
-                    answerIndex
-                  }
-                  onChange={() => handleRadioChange(answerIndex)}
-                />
-                <label htmlFor={`radio${answerIndex}`}>Correct Answer</label>
-              </div>
-            )
-          )}
+                  <label htmlFor={`radio${answerIndex}`}></label>
+                </div>
+              )
+            )}
+          </div>
         </form>
-        <button onClick={handleSave}>save quiz</button>
+        
       </div>
     </>
   );

@@ -71,8 +71,6 @@ h1 {
   color: #000000;
   margin-bottom: 25px;
   font-weight: 200;
-  cursor: pointer;
-  background-color: #CDCDCD;
 }
 
 .btn:hover {
@@ -94,32 +92,4 @@ h1 {
 
 .btn-2:hover {
   background-color: #2b303a;
-}
-
-
-
-.alreadyhaveaccount{
-  color: black;
-text-align: center;
-}
-
-.mg {
-  margin-bottom: 15px;
-}
-
-.input-register {
-  min-width: 535px;
-  height: 40px;
-  padding: 15px;
-  border-radius: 10px;
-  border: 2px solid black;
-}
-
-select {
-  min-width: 535px;
-  height: 70px;
-  padding: 15px;
-  border-radius: 10px;
-  border: 2px solid black;
-  margin-bottom: 15px;
 }

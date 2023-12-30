@@ -1,71 +1,99 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/landingpage.module.css";
 import img from "../images/quiz.png";
 
-const LandingPage = () => {
-  return (
-    <>
-      <nav className={styles.dFlex}>
-        <h2 className={`${styles.f20} ${styles.f200} `}> Quiz</h2>
-        <div className={styles.dFlex}>
-          <Link
-            to="/"
-            className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/services"
-            className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
-          >
-            Services
-          </Link>
-          <Link
-            to="/about"
-            className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
-          >
-            About Us
-          </Link>
-        </div>
+const Modal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
 
+  return (
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <span className={styles.closeButton} onClick={onClose}>
+          X
+        </span>{" "}
         <Link
-          to="/login"
-          className={`${styles.f20} ${styles.f200} ${styles.cBlack} `}
+          to="./login"
+          className={`${styles.f20} ${styles.f200} ${styles.cBlack}   ${styles.login} `}
         >
           Login
         </Link>
-      </nav>
-      <>
-        <div className={`${styles.G1wrapper}`}>
-          <div
-            className={`${styles.f20} ${styles.f200} ${styles.GTopBox} ${styles.a}`}
-          >
-            A
+        <p className={`${styles.f20} ${styles.f200} `}>Don't have an account?</p>
+        <Link
+          to="./signup"
+          className={`${styles.f20} ${styles.f200} ${styles.cBlack}`}
+        >
+          Sign up
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+const LandingPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  return (
+    <>
+      <div className="landingPage">
+        <nav className={styles.dFlex}>
+          <h2 className={`${styles.f20} ${styles.f200} `}> Quiz</h2>
+          <div className={`${styles.dFlex} ${styles.about}`}>
+            <Link
+              to="/"
+              className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/services"
+              className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
+            >
+              Services
+            </Link>
+            <Link
+              to="/about"
+              className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
+            >
+              About Us
+            </Link>
           </div>
 
-          <div
-            className={`${styles.f20} ${styles.f200} ${styles.GTopBox} ${styles.B}`}
+          <button
+            to="/login"
+            className={`${styles.f20} ${styles.f200} ${styles.cBlack}  ${styles.loginButton} `}
+            onClick={toggleModal}
           >
-            B
-          </div>
-        </div>
+            Login
+          </button>
+        </nav>
+        <>
+          <div className={`${styles.G1wrapper}`}>
+            <div
+              className={`${styles.f20} ${styles.f200} ${styles.GTopBox} ${styles.a}`}
+            ></div>
 
-        <div className={`${styles.G2wrapper}`}>
-          <div
-            className={`${styles.f20} ${styles.f200} ${styles.GBottomBox} ${styles.G3Box} ${styles.C}`}
-          >
-            C
+            <div
+              className={`${styles.f20} ${styles.f200} ${styles.GTopBox} ${styles.B}`}
+            ></div>
           </div>
-          <div
-            className={`${styles.f20} ${styles.f200} ${styles.GBottomBox} ${styles.D}`}
-          >
-            D
+
+          <div className={`${styles.G2wrapper}`}>
+            <div
+              className={`${styles.f20} ${styles.f200} ${styles.GBottomBox} ${styles.G3Box} ${styles.C}`}
+            ></div>
+            <div
+              className={`${styles.f20} ${styles.f200} ${styles.GBottomBox} ${styles.G4Box}  ${styles.D}`}
+            ></div>
           </div>
-          
-        </div>
-        <img src={img} alt="quiz" className={`${styles.imgOnTop}`} />
-      </>
+          <img src={img} alt="quiz" className={`${styles.imgOnTop}`} />
+        </>
+        <Modal isOpen={isModalOpen} onClose={toggleModal} />
+      </div>
     </>
   );
 };
