@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&");
+
+.f200 {
+  font-family: Inter;
+  font-weight: 200;
+}
+
+.dFlex {
+  display: flex;
+}
+
+.f20 {
+  font-size: 20px;
+}
+
+.f15 {
+  font-size: 20px;
+}
+
+.cBlack {
+  color: black;
+}
+
+nav {
+  background-color: darkcyan;
+  width: 100%;
+}
+
+.G1wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  background-color: darkgoldenrod;
+  height: 40vh;
+  margin-top: 40px;
+  position: relative;
+}
+
+.G2wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 80px;
+  background-color: darkgoldenrod;
+  height: 40vh;
+  margin-top: 40px;
+  position: relative;
+}
+
+.GTopBox {
+  background-color: #d9d9d9;
+  color: #fff;
+  height: 100%;
+}
+
+.GBottomBox {
+  background-color: #d9d9d9;
+  color: #fff;
+  height: 100%;
+}
+
+.G3Box {
+    height: 80%;
+}
+
+
+
+.imgOnTop {
+  position: absolute;
+  top: 25%;
+  left: 60%; /* Adjust as needed */
+  transform: translateX(-50%);
+  height: 430px;
+  width: 55%; 
+  z-index: 1; 
+  opacity: 1; 
+  transition: opacity 0.9s ease-in-out; /* Smooth transition for opacity */
+}
+
+.imgOnTop:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
