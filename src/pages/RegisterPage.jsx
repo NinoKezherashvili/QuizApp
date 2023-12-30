@@ -61,7 +61,7 @@ const RegisterPage = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <h1> Register </h1>
+        <h1 id="register-h1"> Registration </h1>
         <input
           type="text"
           className="input-register mg"
@@ -93,7 +93,7 @@ const RegisterPage = () => {
           required
         >
           <option value="">Choose Your Course</option>
-          <option value="Frontdend React">Frontdend React</option>
+          <option value="Front-End React">Frontdend React</option>
           <option value="Python Django">Python Django</option>
           <option value="UI/UX Design">UI/UX Design</option>
           <option value="QA/DIGITAL PRODUCTS">QA/DIGITAL PRODUCTS</option>
