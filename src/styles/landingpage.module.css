@@ -133,6 +133,10 @@ nav {
   margin-bottom: 30px;
 }
 
+.login:hover {
+  background-color: #4cdda3;
+  border-color: transparent;
+}
 .loginButton {
   background-color: white;
   border: 0;

@@ -9,6 +9,7 @@ const Createquiz = () => {
   ]);
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleQuestionChange = (index, newText) => {
     const updatedQuestions = [...questions];
@@ -55,6 +56,7 @@ const Createquiz = () => {
       );
 
       console.log("Quiz saved successfully:", response.data);
+      setShowSuccess(true);
     } catch (error) {
       console.error("Error saving quiz:", error.message);
     }
@@ -64,7 +66,7 @@ const Createquiz = () => {
     <>
       <nav>
         <Link
-          to="/"
+          to="/welcomeuser"
           className={`${styles.f30} ${styles.f200} ${styles.cBlack}`}
         >
           {" "}
@@ -86,7 +88,14 @@ const Createquiz = () => {
           <button onClick={handleAddQuestion} className={styles.qButton}>
             +
           </button>
-          <button className= {styles.btnSaveQuiz} onClick={handleSave}>Save</button>
+          <button className={styles.btnSaveQuiz} onClick={handleSave}>
+            Save
+          </button>
+          {showSuccess && (
+            <div className={styles.successMessage}>
+              Quiz saved successfully! 
+            </div>
+          )}
         </aside>
 
         <form className={styles.addQuiz}>
@@ -133,7 +142,6 @@ const Createquiz = () => {
             )}
           </div>
         </form>
-        
       </div>
     </>
   );

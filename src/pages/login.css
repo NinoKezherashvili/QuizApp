@@ -32,6 +32,16 @@ h1 {
   color: 445660;
 }
 
+#register-h1 {
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 200;
+  line-height: 48px;
+  letter-spacing: 0em;
+  margin-bottom: 40px;
+  width: auto;
+}
+
 .input-login {
   min-width: 535px;
   height: 55px;

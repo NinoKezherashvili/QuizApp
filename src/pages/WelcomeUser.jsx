@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import QuizCategories from "./QuizCategories";
+import styles from "../styles/homepage.module.css";
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -24,14 +25,29 @@ const WelcomeUser = () => {
   return (
     <>
       {user ? (
-        <div>
-          <aside>
-            <section className="settings">
-              WelcomeAdmin {user.email}
-              <QuizCategories/>
-            </section>
+        <div className={styles.dflex}>
+          <aside className={styles.Hsettings}>
+            <h3 className={styles.Hfont}>Welcome user {user.email}</h3>
+
+            <div className={styles.navigation}>
+              <Link className={styles.Hfont} to="/createquiz">
+                {" "}
+                Create Quiz{" "}
+              </Link>
+              <Link className={styles.Hfont} to="/myLibrary">
+                {" "}
+                My Library{" "}
+              </Link>
+              <Link className={styles.Hfont} to="/userScores">
+                {" "}
+                User Scores{" "}
+              </Link>
+            </div>
+            <button className={styles.Hbutton} onClick={handleLogout}>
+              Logout
+            </button>
           </aside>
-          <button onClick={handleLogout}>Logout</button>
+          <QuizCategories />
         </div>
       ) : (
         navigate("/")
