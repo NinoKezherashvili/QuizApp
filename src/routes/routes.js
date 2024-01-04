@@ -5,6 +5,8 @@ import Createquiz from "../pages/Createquiz";
 import RegisterPage from "../pages/RegisterPage";
 import LandingPage from "../pages/LandingPage";
 import QuizCategories from "../pages/QuizCategories";
+import ManageCategories from "../pages/ManageCategories";
+import GetCategories from "../pages/GetCategories";
 
 const routes = [
   {
@@ -32,6 +34,14 @@ const routes = [
     path: "/quizcategories",
   },
 
+  {
+    element: <ManageCategories />,
+    path: "/managecategories",
+  },
+  {
+    element: <GetCategories />,
+    path: "/getcategories",
+  },
   { element: <LandingPage />, path: "/" },
 ];
 

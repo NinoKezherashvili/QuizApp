@@ -1,16 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../styles/createquiz.module.css";
 import { Link } from "react-router-dom";
 
+const Modal = ({ isOpen, onClose, categories, handleSave, showSuccess }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContent}>
+        <span className={styles.closeButton} onClick={onClose}>
+          X
+        </span>{" "}
+        <h2>My Categories</h2>
+        <div className={styles.categories}>
+          {categories &&
+            categories.map((category) => (
+              <button
+                key={category.category_id}
+                className={styles.category}
+                onClick={handleSave}
+              >
+                {category.category}
+              </button>
+            ))}
+        </div>
+        {showSuccess && (
+          <div className={styles.successMessage}>Quiz saved successfully!</div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Createquiz = () => {
   const [questions, setQuestions] = useState([
-    { text: "", answers: ["", "", "", ""], correctAnswerIndex: null },
+    {
+      quizName: "",
+      text: "",
+      answers: ["", "", "", ""],
+      correctAnswerIndex: null,
+    },
   ]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
   const [showSuccess, setShowSuccess] = useState(false);
 
+  const [categories, setCategories] = useState([]);
+  const [quizName, setQuizName] = useState("");
+
+  useEffect(() => {
+    const handleCategories = async () => {
+      try {
+        const response = await axios.get(
+          "https://crudapi.co.uk/api/v1/categories",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer 7cLK5cEEhDUdcQJsEoTZNdqQ6t-9ZlcHWLkjPICBAkqbHcKezw`,
+            },
+          }
+        );
+
+        const categories = response.data;
+        console.log(categories);
+
+        setCategories(categories.items);
+      } catch (error) {
+        console.error("Error fetching tasks:", error.message);
+      }
+    };
+    handleCategories();
+  }, []);
+
+  console.log(categories);
   const handleQuestionChange = (index, newText) => {
     const updatedQuestions = [...questions];
     updatedQuestions[index].text = newText;
@@ -35,8 +103,15 @@ const Createquiz = () => {
   const handleAddQuestion = () => {
     setQuestions((prevQuestions) => [
       ...prevQuestions,
-      { text: "", answers: ["", "", "", ""], correctAnswerIndex: null },
+      {
+        quizName,
+        text: "",
+        answers: ["", "", "", ""],
+        correctAnswerIndex: null,
+        category: "",
+      },
     ]);
+    console.log(questions);
 
     setSelectedQuestionIndex((prevIndex) => prevIndex + 1);
   };
@@ -50,7 +125,7 @@ const Createquiz = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer JNOHHns1IVpkHLuWZRxlEZDd-L8n-uh9IuAk0iRIRshJt0LQgQ",
+              "Bearer iufSevUFEsvZUjLB0t5WO3Q3ov31iWlK2_AT2N05I9KgYdWTkw",
           },
         }
       );
@@ -76,6 +151,12 @@ const Createquiz = () => {
 
       <div className={styles.createquiz}>
         <aside className={styles.settings}>
+          <input
+            type="text"
+            placeholder="Untitled Quiz"
+            value={quizName}
+            onChange={(e) => setQuizName(e.target.value)}
+          />
           {questions.map((_, index) => (
             <button
               key={index}
@@ -88,12 +169,12 @@ const Createquiz = () => {
           <button onClick={handleAddQuestion} className={styles.qButton}>
             +
           </button>
-          <button className={styles.btnSaveQuiz} onClick={handleSave}>
+          <button className={styles.btnSaveQuiz} onClick={toggleModal}>
             Save
           </button>
           {showSuccess && (
             <div className={styles.successMessage}>
-              Quiz saved successfully! 
+              Quiz saved successfully!
             </div>
           )}
         </aside>
@@ -142,6 +223,13 @@ const Createquiz = () => {
             )}
           </div>
         </form>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={toggleModal}
+          categories={categories}
+          handleSave={handleSave}
+          showSuccess={showSuccess}
+        />
       </div>
     </>
   );

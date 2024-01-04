@@ -31,16 +31,16 @@ const WelcomeUser = () => {
 
             <div className={styles.navigation}>
               <Link className={styles.Hfont} to="/createquiz">
-                {" "}
-                Create Quiz{" "}
+                Create Quiz
               </Link>
               <Link className={styles.Hfont} to="/myLibrary">
-                {" "}
-                My Library{" "}
+                My Library
               </Link>
               <Link className={styles.Hfont} to="/userScores">
-                {" "}
-                User Scores{" "}
+                User Scores
+              </Link>
+              <Link className={styles.Hfont} to="/managecategories">
+                Manage categories
               </Link>
             </div>
             <button className={styles.Hbutton} onClick={handleLogout}>
