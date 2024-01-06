@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import QuizCategories from "./QuizCategories";
+import GetCategories from "./GetCategoriesAdmin";
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -26,7 +26,7 @@ const WelcomeAdmin = () => {
           <aside>
             <section className="settings">
               WelcomeAdmin {user.email}
-              <QuizCategories />
+              <GetCategories/>
             </section>
           </aside>
           <button onClick={handleLogout}>Logout</button>
