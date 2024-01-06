@@ -6,7 +6,8 @@ import RegisterPage from "../pages/RegisterPage";
 import LandingPage from "../pages/LandingPage";
 import QuizCategories from "../pages/QuizCategories";
 import ManageCategories from "../pages/ManageCategories";
-import GetCategories from "../pages/GetCategories";
+import GetCategories from "../pages/GetCategoriesAdmin";
+import EditQuiz from "../pages/EditQuiz";
 
 const routes = [
   {
@@ -41,6 +42,10 @@ const routes = [
   {
     element: <GetCategories />,
     path: "/getcategories",
+  },
+  {
+    element: <EditQuiz />,
+    path: "/editquiz/:quizName", 
   },
   { element: <LandingPage />, path: "/" },
 ];

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function GetCategories() {
   const [categories, setCategories] = useState({});
@@ -10,7 +11,7 @@ function GetCategories() {
         const response = await axios.get("https://crudapi.co.uk/api/v1/quiz", {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer 7cLK5cEEhDUdcQJsEoTZNdqQ6t-9ZlcHWLkjPICBAkqbHcKezw`,
+            Authorization: `Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw`,
           },
         });
 
@@ -20,20 +21,16 @@ function GetCategories() {
         const categorizedQuizzes = quizData.items.reduce((result, item) => {
           const category = item.category || "Uncategorized";
           const quizName = item.quizName || "Untitled Quiz";
-        
+
           if (!result[category]) {
             result[category] = [];
           }
 
           result[category].push(quizName);
 
-          console.log(category);
-          console.log(quizName);
-          console.log(result);
-
           return result;
         }, {});
-        console.log(categories);
+        console.log(categorizedQuizzes);
         setCategories(categorizedQuizzes);
       } catch (error) {
         console.error("Error fetching tasks:", error.message);
@@ -50,12 +47,22 @@ function GetCategories() {
         {Object.entries(categories).map(([category, quizzes]) => (
           <div key={category}>
             <h2>{category}</h2>
-            <div className="dFlex">
-            {quizzes.map((quiz) => {
-              return <div key={quiz}> quiz</div>;
-            })}
+            <div>
+              {quizzes.map((quizName) => {
+                return (
+                  <div key={quizName}>
+                    <h2>{quizName}</h2>
+
+                    <Link
+                      to={`/editquiz/${encodeURIComponent(quizName)}`}
+                      key={quizName}
+                    >
+                      Edit
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
-           
           </div>
         ))}
       </ul>

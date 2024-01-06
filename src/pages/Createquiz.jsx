@@ -68,7 +68,6 @@ const Createquiz = () => {
         );
 
         const categories = response.data;
-        console.log(categories);
 
         setCategories(categories.items);
       } catch (error) {
@@ -78,13 +77,10 @@ const Createquiz = () => {
     handleCategories();
   }, []);
 
-  console.log(categories);
   const handleQuestionChange = (index, newText) => {
     const updatedQuestions = [...questions];
     updatedQuestions[index].text = newText;
     setQuestions(updatedQuestions);
-    console.log(updatedQuestions);
-    console.log(index);
   };
 
   const handleAnswerChange = (answerIndex, newValue) => {
@@ -111,7 +107,6 @@ const Createquiz = () => {
         category: "",
       },
     ]);
-    console.log(questions);
 
     setSelectedQuestionIndex((prevIndex) => prevIndex + 1);
   };
@@ -131,6 +126,7 @@ const Createquiz = () => {
       );
 
       console.log("Quiz saved successfully:", response.data);
+      console.log(questions);
       setShowSuccess(true);
     } catch (error) {
       console.error("Error saving quiz:", error.message);
