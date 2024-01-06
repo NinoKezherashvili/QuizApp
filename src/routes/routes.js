@@ -45,7 +45,7 @@ const routes = [
   },
   {
     element: <EditQuiz />,
-    path: "/editquiz/:quizName", 
+    path: "/editquiz/:uuid", 
   },
   { element: <LandingPage />, path: "/" },
 ];

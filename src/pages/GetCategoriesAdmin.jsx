@@ -1,9 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function GetCategories() {
-  const [categories, setCategories] = useState({});
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const handleCategories = async () => {
@@ -15,57 +15,46 @@ function GetCategories() {
           },
         });
 
-        const quizData = response.data;
-        console.log(quizData);
+        const quizData = response.data.items;
 
-        const categorizedQuizzes = quizData.items.reduce((result, item) => {
-          const category = item.category || "Uncategorized";
-          const quizName = item.quizName || "Untitled Quiz";
+        const groupedQuizzes = quizData.reduce((acc, quiz) => {
+          const category = quiz.category;
 
-          if (!result[category]) {
-            result[category] = [];
+          if (!acc[category]) {
+            acc[category] = [];
           }
+          const { _created, _data_type, _is_deleted, _modified, _self_link, _user, category: quizCategory, ...quizInfo } = quiz;
+          acc[category].push(quizInfo);
 
-          result[category].push(quizName);
-
-          return result;
+          return acc;
         }, {});
-        console.log(categorizedQuizzes);
-        setCategories(categorizedQuizzes);
+
+        setCategories(groupedQuizzes);
+        console.log(groupedQuizzes)
+
       } catch (error) {
         console.error("Error fetching tasks:", error.message);
       }
     };
-
     handleCategories();
   }, []);
 
   return (
     <div>
-      <h2>Categories:</h2>
-      <ul>
-        {Object.entries(categories).map(([category, quizzes]) => (
-          <div key={category}>
-            <h2>{category}</h2>
-            <div>
-              {quizzes.map((quizName) => {
-                return (
-                  <div key={quizName}>
-                    <h2>{quizName}</h2>
-
-                    <Link
-                      to={`/editquiz/${encodeURIComponent(quizName)}`}
-                      key={quizName}
-                    >
-                      Edit
-                    </Link>
-                  </div>
-                );
-              })}
+      {Object.entries(categories).map(([category, quizzes]) => (
+        <div key={category}>
+          <h2>{category}</h2>
+          {quizzes.map((quiz) => (
+            <div key={quiz._uuid}>
+              <Link
+                to={`/editquiz/${encodeURIComponent(quiz._uuid)}`}
+              >
+                {Object.keys(quiz)[0]}
+              </Link>
             </div>
-          </div>
-        ))}
-      </ul>
+          ))}
+        </div>
+      ))}
     </div>
   );
 }

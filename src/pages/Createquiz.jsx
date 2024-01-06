@@ -62,7 +62,7 @@ const Createquiz = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer 7cLK5cEEhDUdcQJsEoTZNdqQ6t-9ZlcHWLkjPICBAkqbHcKezw`,
+              Authorization: `Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw`,
             },
           }
         );
@@ -113,25 +113,35 @@ const Createquiz = () => {
 
   const handleSave = async () => {
     try {
+      const quizData = [{
+        category: categories[0].category, 
+        [quizName]: questions.map((question) => ({
+          question: question.text,
+          answers: question.answers,
+          correctAnswerIndex: question.correctAnswerIndex.toString(),
+        })),
+      }];
+  
       const response = await axios.post(
         "https://crudapi.co.uk/api/v1/quiz",
-        questions,
+        quizData,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization:
-              "Bearer iufSevUFEsvZUjLB0t5WO3Q3ov31iWlK2_AT2N05I9KgYdWTkw",
+            Authorization: "Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw",
           },
         }
       );
-
+  
       console.log("Quiz saved successfully:", response.data);
-      console.log(questions);
       setShowSuccess(true);
     } catch (error) {
       console.error("Error saving quiz:", error.message);
     }
   };
+
+
+ 
 
   return (
     <>
