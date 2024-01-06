@@ -115,7 +115,8 @@ const Createquiz = () => {
     try {
       const quizData = [{
         category: categories[0].category, 
-        [quizName]: questions.map((question) => ({
+        quizname: quizName,
+        quizquestions: questions.map((question) => ({
           question: question.text,
           answers: question.answers,
           correctAnswerIndex: question.correctAnswerIndex.toString(),
