@@ -49,7 +49,7 @@ function GetCategories() {
               <Link
                 to={`/editquiz/${encodeURIComponent(quiz._uuid)}`}
               >
-                {Object.keys(quiz)[0]}
+                {quiz.quizname}
               </Link>
             </div>
           ))}
