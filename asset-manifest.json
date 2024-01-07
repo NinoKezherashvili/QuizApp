@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.234aa811.css",
-    "main.js": "/static/js/main.0333bf10.js",
-    "static/js/787.2b33616b.chunk.js": "/static/js/787.2b33616b.chunk.js",
-    "static/media/quiz.png": "/static/media/quiz.ce57fa195b5085b7368b.png",
-    "index.html": "/index.html",
-    "main.234aa811.css.map": "/static/css/main.234aa811.css.map",
-    "main.0333bf10.js.map": "/static/js/main.0333bf10.js.map",
-    "787.2b33616b.chunk.js.map": "/static/js/787.2b33616b.chunk.js.map"
+    "main.css": "/SkilwillProject/static/css/main.234aa811.css",
+    "main.js": "/SkilwillProject/static/js/main.cc0c1864.js",
+    "static/js/787.2b33616b.chunk.js": "/SkilwillProject/static/js/787.2b33616b.chunk.js",
+    "static/media/quiz.png": "/SkilwillProject/static/media/quiz.ce57fa195b5085b7368b.png",
+    "index.html": "/SkilwillProject/index.html",
+    "main.234aa811.css.map": "/SkilwillProject/static/css/main.234aa811.css.map",
+    "main.cc0c1864.js.map": "/SkilwillProject/static/js/main.cc0c1864.js.map",
+    "787.2b33616b.chunk.js.map": "/SkilwillProject/static/js/787.2b33616b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.234aa811.css",
-    "static/js/main.0333bf10.js"
+    "static/js/main.cc0c1864.js"
   ]
 }
