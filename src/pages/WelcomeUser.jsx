@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import QuizCategories from "./QuizCategories";
-import styles from "../styles/homepage.module.css";
+import styles from "../styles/homepageuser.module.css";
+import GetCategories from "./GetCategoriesAdmin";
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -47,7 +47,7 @@ const WelcomeUser = () => {
               Logout
             </button>
           </aside>
-          <QuizCategories />
+          <GetCategories />
         </div>
       ) : (
         navigate("/")

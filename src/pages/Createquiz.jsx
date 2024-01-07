@@ -62,7 +62,7 @@ const Createquiz = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw`,
+              Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
             },
           }
         );
@@ -129,7 +129,7 @@ const Createquiz = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw",
+            Authorization: "Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw",
           },
         }
       );

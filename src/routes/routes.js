@@ -4,7 +4,6 @@ import WelcomeUser from "../pages/WelcomeUser";
 import Createquiz from "../pages/Createquiz";
 import RegisterPage from "../pages/RegisterPage";
 import LandingPage from "../pages/LandingPage";
-import QuizCategories from "../pages/QuizCategories";
 import ManageCategories from "../pages/ManageCategories";
 import GetCategories from "../pages/GetCategoriesAdmin";
 import EditQuiz from "../pages/EditQuiz";
@@ -30,10 +29,7 @@ const routes = [
     element: <Login />,
     path: "/login",
   },
-  {
-    element: <QuizCategories />,
-    path: "/quizcategories",
-  },
+
 
   {
     element: <ManageCategories />,

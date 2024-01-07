@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const EditQuiz = () => {
   const { uuid } = useParams();
-  const [quiz, setQuiz] = useState([]);
+  const [quiz, setQuiz] = useState(null);
 
   useEffect(() => {
     const handleCategories = async () => {
@@ -12,30 +12,82 @@ const EditQuiz = () => {
         const response = await axios.get(`https://crudapi.co.uk/api/v1/quiz/${uuid}`, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw`,
+            Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
           },
         });
 
         const quizData = response.data;
-        console.log(quizData)
+        setQuiz(quizData);
 
       } catch (error) {
-        console.error("Error fetching tasks:", error.message);
+        console.error("Error fetching quiz:", error.message);
       }
     };
-  
-    handleCategories();
-  
-  }, []);
 
+    handleCategories();
+  }, [uuid]);
+
+  const handleQuestionChange = (questionIndex, value) => {
+    const updatedQuiz = { ...quiz };
+    updatedQuiz.quizquestions[questionIndex].question = value;
+    setQuiz(updatedQuiz);
+  };
+
+  const handleAnswerChange = (questionIndex, answerIndex, value) => {
+    const updatedQuiz = { ...quiz };
+    updatedQuiz.quizquestions[questionIndex].answers[answerIndex] = value;
+    setQuiz(updatedQuiz);
+  };
+
+  const handleEdit = async () => {
+    try {
+      await axios.put(`https://crudapi.co.uk/api/v1/quiz/${uuid}`, quiz, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
+        },
+      });
+     
+      setQuiz(quiz); 
+      console.log(quiz)
+    } catch (error) {
+      console.error("Error updating quiz:", error.message);
+    }
+  };
 
   return (
     <div>
       <h2>Edit Quiz: {uuid}</h2>
 
-      <div key={uuid}>
-        <p>{quiz}</p>
-      </div>
+      {quiz && (
+        <div>
+          {quiz.quizquestions.map((question, questionIndex) => (
+            <div key={questionIndex}>
+              <h3>Question {questionIndex + 1}</h3>
+              <p>Question:</p>
+              <input
+                type="text"
+                value={question.question}
+                onChange={(e) => handleQuestionChange(questionIndex, e.target.value)}
+              />
+              <ul>
+                {question.answers.map((answer, answerIndex) => (
+                  <li key={answerIndex}>
+                    <input
+                      type="text"
+                      value={answer}
+                      onChange={(e) =>
+                        handleAnswerChange(questionIndex, answerIndex, e.target.value)
+                      }
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <button onClick={handleEdit}>Save Changes</button>
+        </div>
+      )}
     </div>
   );
 };

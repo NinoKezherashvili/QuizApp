@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const apiUrl = "https://crudapi.co.uk/api/v1/users/";
-const apikey = "xv3-LTI5caQCDdtVPBjM5FxTh-SKxun6iN6imLdmnllWHljVlA";
+const apikey = "xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw";
 
 const headers = { Authorization: `Bearer ${apikey}` };
 
