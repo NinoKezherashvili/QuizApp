@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GetCategories from "./GetCategoriesAdmin";
+import styles from "../styles/homepageadmin.module.css";
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -20,21 +21,44 @@ const WelcomeAdmin = () => {
     setUser(null);
   };
   return (
-    <>
+   
+
+
+
+   <>
       {user ? (
-        <div>
-          <aside>
-            <section className="settings">
-              WelcomeAdmin {user.email}
-              <GetCategories/>
-            </section>
+        <div className={styles.dflex}>
+          <aside className={styles.Hsettings}>
+          {/* <div className={styles.overlay}></div>  */}
+
+
+            <h3 className={`${styles.Hfont} ${styles.zindex} `}>Welcome user {user.username}</h3>
+
+            <div className={styles.navigation}>
+              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/createquiz">
+                Create Quiz
+              </Link>
+              
+              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/userScores">
+                User Scores
+              </Link>
+              <Link className={styles.Hfont} to="/managecategories">
+                Manage categories
+              </Link>
+            </div>
+            <button className={styles.Hbutton} onClick={handleLogout}>
+              Logout
+            </button>
           </aside>
-          <button onClick={handleLogout}>Logout</button>
+          <GetCategories />
         </div>
       ) : (
         navigate("/")
       )}
     </>
+
+     
+  
   );
 };
 

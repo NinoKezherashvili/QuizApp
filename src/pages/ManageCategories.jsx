@@ -53,9 +53,7 @@ const ManageCategories = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const deleteCategory =() => {
 
-  }
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -65,7 +63,7 @@ const ManageCategories = () => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer 7cLK5cEEhDUdcQJsEoTZNdqQ6t-9ZlcHWLkjPICBAkqbHcKezw`,
+              Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
             },
           }
         );
@@ -93,7 +91,7 @@ const ManageCategories = () => {
           headers: {
             "Content-Type": "application/json",
             Authorization:
-              "Bearer 7cLK5cEEhDUdcQJsEoTZNdqQ6t-9ZlcHWLkjPICBAkqbHcKezw",
+              "Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw",
           },
         }
       );
@@ -117,7 +115,7 @@ const ManageCategories = () => {
       ))}
 
       <button onClick={toggleModal}>+</button>
-      <delete onClick={deleteCategory} >Delete</delete>
+     
       <Modal
         isOpen={isModalOpen}
         onClose={toggleModal}

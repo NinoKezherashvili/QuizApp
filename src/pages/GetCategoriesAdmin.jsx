@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import styles from "../styles/homepageadmin.module.css"
+
 
 function GetCategories() {
   const [categories, setCategories] = useState([]);
@@ -11,7 +13,7 @@ function GetCategories() {
         const response = await axios.get("https://crudapi.co.uk/api/v1/quiz", {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer tfx85NZV7wrrD2SwG4zFTC0B3ECHDjSzZUszQ0LuYlsoNhKKgw`,
+            Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
           },
         });
 
@@ -40,19 +42,23 @@ function GetCategories() {
   }, []);
 
   return (
-    <div>
+    <div className={`${styles.dflex} ${styles.dcolumn}`}>
       {Object.entries(categories).map(([category, quizzes]) => (
-        <div key={category}>
+        <div key={category} className={`${styles.dflex} ${styles.dcolumn}`}>
           <h2>{category}</h2>
+          <div className={`${styles.dgrid}`}>
           {quizzes.map((quiz) => (
-            <div key={quiz._uuid}>
+            <div key={quiz._uuid} className={styles.quiz}>
+              <h3>{quiz.quizname}</h3>
               <Link
                 to={`/editquiz/${encodeURIComponent(quiz._uuid)}`}
               >
-                {quiz.quizname}
+                Edit
               </Link>
             </div>
           ))}
+          </div>
+         
         </div>
       ))}
     </div>

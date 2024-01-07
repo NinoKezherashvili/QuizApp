@@ -19,6 +19,7 @@ const RegisterPage = () => {
   const [passWord, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [selectedValue, setSelectedValue] = useState("");
+  const role = {user:'user'}
 
   //    C H E C K   ------    S T A T E
 
@@ -48,7 +49,7 @@ const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!checkValues()) return false;
-    dispatch(createData({ fullName, email, passWord, selectedValue }));
+    dispatch(createData({ fullName, email, passWord, selectedValue,role }));
     navigate("/home");
     return true;
   };
