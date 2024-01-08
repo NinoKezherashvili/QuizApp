@@ -1,16 +1,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiUrl = "https://crudapi.co.uk/api/v1/users/";
+const apiUrl = "https://crudapi.co.uk/api/v1/singupData";
 const apikey = "xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw";
 
 const headers = { Authorization: `Bearer ${apikey}` };
 
-export const loginUser = createAsyncThunk("user/loginUser", async (cred) => {
-  const request = await axios.get(`${apiUrl}${cred}`, { headers });
-  const response = await request.data;
-  localStorage.setItem("user", JSON.stringify(response));
-  return response;
+export const loginUser = createAsyncThunk("user/loginUser", async (email) => {
+  try {
+    console.log(email);
+
+    const request = await axios.get(`${apiUrl}`, { headers });
+    //თუ დაბრუნებულ დატაში იძებნება მერე დაანავიგეითე
+
+    const response = await request.data.items;
+    console.log(response);
+
+    const userExists = response.some((user) => user.email === email);
+    console.log(userExists);
+
+    if (userExists) {
+      const user = response.filter((user) => user.email === email);
+      console.log(user[0])
+      localStorage.setItem("user", JSON.stringify(user[0]));
+      return user;
+    }
+  } catch (error) {
+    throw new Error("Login failed");
+  }
 });
 
 const initialState = {

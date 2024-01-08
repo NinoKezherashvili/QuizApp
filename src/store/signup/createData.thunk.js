@@ -13,7 +13,7 @@ export const createData = createAsyncThunk(
         body: JSON.stringify([singUpData]),
       });
       const data = await response.json();
-
+      localStorage.setItem("user", JSON.stringify(data.items[0]));
       console.log(data, "THUNK DATA");
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {

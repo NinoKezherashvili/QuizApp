@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUserData } from "./createData.thunk";
+import { createData } from "./createData.thunk";
 
 const initialState = {
   loading: false,
@@ -12,16 +12,19 @@ const singupSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchUserData.pending, (state) => {
+    builder.addCase(createData.pending, (state) => {
       state.error = null;
       state.loading = "LOADING . . . ";
     });
-    builder.addCase(fetchUserData.fulfilled, (state, action) => {
+    builder.addCase(createData.fulfilled, (state, action) => {
+      console.log("Fulfilled state:", state);
       state.error = null;
       state.loading = false;
       state.singupData = action.payload;
+     console.log(state.singupData)
+
     });
-    builder.addCase(fetchUserData.rejected);
+    builder.addCase(createData.rejected);
   },
 });
 

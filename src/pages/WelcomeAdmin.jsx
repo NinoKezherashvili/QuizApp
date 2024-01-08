@@ -23,8 +23,6 @@ const WelcomeAdmin = () => {
   return (
    
 
-
-
    <>
       {user ? (
         <div className={styles.dflex}>
@@ -32,7 +30,7 @@ const WelcomeAdmin = () => {
           {/* <div className={styles.overlay}></div>  */}
 
 
-            <h3 className={`${styles.Hfont} ${styles.zindex} `}>Welcome user {user.username}</h3>
+            <h3 className={`${styles.Hfont} ${styles.zindex} `}>Welcome user {user.fullName}</h3>
 
             <div className={styles.navigation}>
               <Link className={`${styles.Hfont} ${styles.zindex} `} to="/createquiz">

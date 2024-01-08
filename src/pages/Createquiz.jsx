@@ -113,27 +113,30 @@ const Createquiz = () => {
 
   const handleSave = async () => {
     try {
-      const quizData = [{
-        category: categories[0].category, 
-        quizname: quizName,
-        quizquestions: questions.map((question) => ({
-          question: question.text,
-          answers: question.answers,
-          correctAnswerIndex: question.correctAnswerIndex.toString(),
-        })),
-      }];
-  
+      const quizData = [
+        {
+          category: categories[0].category,
+          quizname: quizName,
+          quizquestions: questions.map((question) => ({
+            question: question.text,
+            answers: question.answers,
+            correctAnswerIndex: question.correctAnswerIndex.toString(),
+          })),
+        },
+      ];
+
       const response = await axios.post(
         "https://crudapi.co.uk/api/v1/quiz",
         quizData,
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw",
+            Authorization:
+              "Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw",
           },
         }
       );
-  
+
       console.log("Quiz saved successfully:", response.data);
       setShowSuccess(true);
     } catch (error) {
@@ -141,17 +144,14 @@ const Createquiz = () => {
     }
   };
 
-
- 
-
   return (
     <>
       <nav>
         <Link
           to="/welcomeuser"
-          className={`${styles.f30} ${styles.f200} ${styles.cBlack}`}
+          className={`${styles.f30} ${styles.f200} `}
         >
-          {" "}
+
           Quizz
         </Link>
       </nav>
@@ -163,6 +163,7 @@ const Createquiz = () => {
             placeholder="Untitled Quiz"
             value={quizName}
             onChange={(e) => setQuizName(e.target.value)}
+            className={styles.quizNameInput}
           />
           {questions.map((_, index) => (
             <button
@@ -213,11 +214,13 @@ const Createquiz = () => {
                   />
                   <input
                     key={answerIndex}
-                    className={styles.aInput}
+                    className={`${styles[`Answer${answerIndex + 1}`]} ${
+                      styles.aInput
+                    }`}
                     type="text"
                     name=""
                     id=""
-                    placeholder={`answer ${answerIndex + 1}`}
+                    placeholder={`Answer ${answerIndex + 1}`}
                     value={answer}
                     onChange={(e) =>
                       handleAnswerChange(answerIndex, e.target.value)
