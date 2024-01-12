@@ -16,11 +16,11 @@ const Login = () => {
         if (result.payload.role === "admin") {
           setEmail("");
           setPwd("");
-          navigate("/welcomeadmin");
+          navigate("/quizapp/welcomeadmin");
         } else {
           setEmail("");
           setPwd("");
-          navigate("/welcomeuser");
+          navigate("/quizapp/welcomeuser");
         }
       } else {
         console.error("Invalid server response:", result);

@@ -50,7 +50,7 @@ const WelcomeUser = () => {
           <GetCategories />
         </div>
       ) : (
-        navigate("/")
+        navigate("/quizapp")
       )}
     </>
   );
