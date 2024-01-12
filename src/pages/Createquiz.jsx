@@ -12,7 +12,7 @@ const Modal = ({ isOpen, onClose, categories, handleSave, showSuccess }) => {
         <span className={styles.closeButton} onClick={onClose}>
           X
         </span>{" "}
-        <h2>My Categories</h2>
+        <h2 className={styles.categoriesHeader}>My Categories</h2>
         <div className={styles.categories}>
           {categories &&
             categories.map((category) => (
@@ -180,11 +180,7 @@ const Createquiz = () => {
           <button className={styles.btnSaveQuiz} onClick={toggleModal}>
             Save
           </button>
-          {showSuccess && (
-            <div className={styles.successMessage}>
-              Quiz saved successfully!
-            </div>
-          )}
+        
         </aside>
 
         <form className={styles.addQuiz}>

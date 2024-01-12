@@ -9,16 +9,18 @@ const EditQuiz = () => {
   useEffect(() => {
     const handleCategories = async () => {
       try {
-        const response = await axios.get(`https://crudapi.co.uk/api/v1/quiz/${uuid}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
-          },
-        });
+        const response = await axios.get(
+          `https://crudapi.co.uk/api/v1/quiz/${uuid}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
+            },
+          }
+        );
 
         const quizData = response.data;
         setQuiz(quizData);
-
       } catch (error) {
         console.error("Error fetching quiz:", error.message);
       }
@@ -26,6 +28,7 @@ const EditQuiz = () => {
 
     handleCategories();
   }, [uuid]);
+  console.log(quiz);
 
   const handleQuestionChange = (questionIndex, value) => {
     const updatedQuiz = { ...quiz };
@@ -47,9 +50,9 @@ const EditQuiz = () => {
           Authorization: `Bearer xqV72-moMK_a_u_QJTHyybjqNfiMlQpZaoyCWPP_St1hs-a3Lw`,
         },
       });
-     
-      setQuiz(quiz); 
-      console.log(quiz)
+
+      setQuiz(quiz);
+      console.log(quiz);
     } catch (error) {
       console.error("Error updating quiz:", error.message);
     }
@@ -58,7 +61,7 @@ const EditQuiz = () => {
   return (
     <div>
       <h2>Edit Quiz: {uuid}</h2>
-
+      <h2>{quiz && quiz.quizname}</h2>
       {quiz && (
         <div>
           {quiz.quizquestions.map((question, questionIndex) => (
@@ -68,7 +71,9 @@ const EditQuiz = () => {
               <input
                 type="text"
                 value={question.question}
-                onChange={(e) => handleQuestionChange(questionIndex, e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(questionIndex, e.target.value)
+                }
               />
               <ul>
                 {question.answers.map((answer, answerIndex) => (
@@ -77,7 +82,11 @@ const EditQuiz = () => {
                       type="text"
                       value={answer}
                       onChange={(e) =>
-                        handleAnswerChange(questionIndex, answerIndex, e.target.value)
+                        handleAnswerChange(
+                          questionIndex,
+                          answerIndex,
+                          e.target.value
+                        )
                       }
                     />
                   </li>
