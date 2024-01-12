@@ -11,39 +11,39 @@ import EditQuiz from "../pages/EditQuiz";
 const routes = [
   {
     element: <WelcomeAdmin />,
-    path: "/welcomeadmin",
+    path: "//QuizAppwelcomeadmin",
   },
   {
     element: <WelcomeUser />,
-    path: "/welcomeuser",
+    path: "/QuizApp/welcomeuser",
   },
   {
     element: <Createquiz />,
-    path: "/createquiz",
+    path: "/QuizApp/createquiz",
   },
   {
     element: <RegisterPage />,
-    path: "/signup",
+    path: "/QuizApp/signup",
   },
   {
     element: <Login />,
-    path: "/login",
+    path: "/QuizApp/login",
   },
 
 
   {
     element: <ManageCategories />,
-    path: "/managecategories",
+    path: "/QuizApp/managecategories",
   },
   {
     element: <GetCategories />,
-    path: "/getcategories",
+    path: "//QuizAppgetcategories",
   },
   {
     element: <EditQuiz />,
-    path: "/editquiz/:uuid", 
+    path: "/QuizApp/editquiz/:uuid", 
   },
-  { element: <LandingPage />, path: "/" },
+  { element: <LandingPage />, path: "/QuizApp" },
 ];
 
 export default routes;
