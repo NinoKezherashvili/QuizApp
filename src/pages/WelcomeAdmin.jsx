@@ -33,14 +33,14 @@ const WelcomeAdmin = () => {
             <h3 className={`${styles.Hfont} ${styles.zindex} `}>Welcome user {user.fullName}</h3>
 
             <div className={styles.navigation}>
-              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/createquiz">
+              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/quizapp/createquiz">
                 Create Quiz
               </Link>
               
-              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/userScores">
+              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/quizapp/userScores">
                 User Scores
               </Link>
-              <Link className={styles.Hfont} to="/managecategories">
+              <Link className={styles.Hfont} to="/quizapp/managecategories">
                 Manage categories
               </Link>
             </div>

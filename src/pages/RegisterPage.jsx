@@ -110,7 +110,7 @@ const RegisterPage = () => {
         >
           Sign Up
         </button>
-        <Link className={styles.navigateLogin} to={"/login"}>
+        <Link className={styles.navigateLogin} to={"/quizapp/login"}>
           {" "}
           Already have an account? 
         </Link>
