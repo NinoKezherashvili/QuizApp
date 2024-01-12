@@ -11,7 +11,7 @@ import EditQuiz from "../pages/EditQuiz";
 const routes = [
   {
     element: <WelcomeAdmin />,
-    path: "//QuizAppwelcomeadmin",
+    path: "//QuizApp/welcomeadmin",
   },
   {
     element: <WelcomeUser />,
