@@ -43,7 +43,7 @@ const routes = [
     element: <EditQuiz />,
     path: "/editquiz/:uuid", 
   },
-  { element: <LandingPage />, path: "/" },
+  { element: <LandingPage />, path: "/QuizApp" },
 ];
 
 export default routes;
