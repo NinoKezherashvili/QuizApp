@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose }) => {
         </span>{" "}
         <Link
           to="./login"
-          className={`${styles.f20} ${styles.f200} ${styles.cBlack}   ${styles.login} `}
+          className={`${styles.f20} ${styles.f200} ${styles.cWhite}   ${styles.login} `}
         >
           Login
         </Link>
@@ -40,24 +40,24 @@ const LandingPage = () => {
   return (
     <>
       <div className="landingPage">
-        <nav className={styles.dFlex}>
+        <nav className={`${styles.dFlex} ${styles.navigation} `}>
           <h2 className={`${styles.f20} ${styles.f200} `}> Quiz</h2>
           <div className={`${styles.dFlex} ${styles.about}`}>
             <Link
               to="/"
-              className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
+              className={`${styles.f15} ${styles.f200} ${styles.cWhite}`}
             >
               Home
             </Link>
             <Link
               to="/services"
-              className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
+              className={`${styles.f15} ${styles.f200} ${styles.cWhite}`}
             >
               Services
             </Link>
             <Link
               to="/about"
-              className={`${styles.f15} ${styles.f200} ${styles.cBlack}`}
+              className={`${styles.f15} ${styles.f200} ${styles.cWhite}`}
             >
               About Us
             </Link>
@@ -65,7 +65,7 @@ const LandingPage = () => {
 
           <button
             to="/login"
-            className={`${styles.f20} ${styles.f200} ${styles.cBlack}  ${styles.loginButton} `}
+            className={`${styles.f20} ${styles.f200}  ${styles.loginButton} `}
             onClick={toggleModal}
           >
             Login

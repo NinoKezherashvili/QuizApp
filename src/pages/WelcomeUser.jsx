@@ -27,7 +27,7 @@ const WelcomeUser = () => {
       {user ? (
         <div className={styles.dflex}>
           <aside className={styles.Hsettings}>
-            <h3 className={styles.Hfont}>Welcome user {user.email}</h3>
+            <h3 className={styles.Hfont}>Welcome user {user.fullName}</h3>
 
             <div className={styles.navigation}>
               <Link className={styles.Hfont} to="/createquiz">

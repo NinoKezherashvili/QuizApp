@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&");
+
 .createquiz {
   display: flex;
-  height: 100vh;
+  height: 90vh;
   margin-top: 30px;
+  font-family: Inter;
+  font-weight: 200;
 }
 
 .dFlex {
@@ -20,6 +24,11 @@
   background-color: #d9d9d9;
   border: 0;
   margin-bottom: 20px;
+  background-image: url("/src/images/Frame\ 1430101835.png");
+  background-size: cover;
+  font-family: Inter;
+  color: #4f356e;
+  font-size: 20px;
 }
 
 .addQuiz {
@@ -28,28 +37,36 @@
 
 .qInput {
   width: 1125px;
-  height: 332px;
-  border-radius: 10px;
-  border-color: transparent;
-  background-color: #d9d9d9;
+  height: 330px;
+  border: 0;
   margin-bottom: 30px;
+  background-image: url("/src/images/createdquiz.png");
+  background-size: cover;
+  font-size: 30px;
+  font-family: Inter;
+  color: #4f356e;
 }
 
 .aInput {
   width: 500px;
-  height: 100px;
+  height: 100%;
   border-radius: 15px;
-  background-color: #d9d9d9;
   border: transparent;
+  font-family: Inter;
+  color: #4f356e;
+  font-size: 15px;
 }
 
 .f30 {
-  font-size: 36px;
+  font-size: 30px;
+  color: #4f356e;
+  text-decoration: none;
 }
 
 .f200 {
   font-family: Inter;
   font-weight: 200;
+  padding-left: 30px;
 }
 
 .cBlack {
@@ -60,7 +77,8 @@
 .answersInputs {
   display: grid;
   grid-template-columns: 2fr 2fr;
-  gap: 40px;
+  gap: 30px;
+  height: 50%;
 }
 
 .answerFormat {
@@ -69,32 +87,34 @@
 
 .answerRadio {
   margin-right: 15px;
+  background-color: #a2ded0;
 }
 
 .btnSaveQuiz {
   border: 0;
   padding: 5px;
-  width: 90px;
+  width: 200px;
   border-radius: 7px;
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   font-family: Inter;
   font-weight: 200;
   font-weight: 400;
+  background-color: #4f356e;
+  color: white;
 }
 
 .btnSaveQuiz:hover {
   background-color: #4cdda3;
   cursor: pointer;
- 
 }
 
-/* .successMessage {
-  position: fixed;
-  bottom: 20px;
-} */
-
-
+.successMessage {
+  color: #4cdda3;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+} 
 
 .modalOverlay {
   position: fixed;
@@ -107,6 +127,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  border-radius: 18px;
 }
 
 .modalContent {
@@ -121,6 +142,8 @@
   align-items: center;
   background-color: #d9d9d9;
   justify-content: center;
+  border-radius: 18px;
+  border: 1px solid #23CE7C
 }
 
 .closeButton {
@@ -154,9 +177,67 @@
 
 .categories {
   display: flex;
-
 }
 
 .category {
   margin-right: 5px;
+  width: 200px;
+  background-color: transparent;
+  border: 0;
+  height: 60px;
+  color: white;
+  font-family: Inter;
+  font-weight: 200;
+  font-size: 17px;
+  color: #4f356e;
+}
+
+
+.categoriesHeader{ 
+  color: black;
+  font-family: Inter;
+  font-weight: 200;
+}
+
+.category:hover {
+  margin-right: 5px;
+  width: 200px;
+  background-color: #4f356e;
+  border-radius: 12px;
+  height: 60px;
+  color: white;
+  font-family: Inter;
+  font-weight: 200;
+  font-size: 17px;
+}
+
+.Answer1 {
+  background-color: #a2ded0;
+}
+
+.Answer2 {
+  background-color: #ffd3b6;
+}
+
+.Answer3 {
+  background-color: #bac0cd;
+}
+.Answer4 {
+  background-color: #f9c4b1;
+}
+
+.quizNameInput {
+  border-radius: 5px;
+  height: 20px;
+  margin-bottom: 20px;
+  border: 2px solid #4f356e;
+}
+
+aside {
+  padding-left: 30px;
+  height: 90vh;
+}
+
+nav {
+  height: 5vh;
 }
