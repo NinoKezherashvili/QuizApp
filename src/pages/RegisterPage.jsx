@@ -50,7 +50,7 @@ const RegisterPage = () => {
     e.preventDefault();
     if (checkValues()) {
       dispatch(createData({ fullName, email, passWord, course, role }));
-      navigate("/welcomeuser");
+      navigate("/quizapp/welcomeuser");
     }
   };
 

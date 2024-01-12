@@ -51,7 +51,7 @@ const WelcomeAdmin = () => {
           <GetCategories />
         </div>
       ) : (
-        navigate("/")
+        navigate("/quizapp")
       )}
     </>
 
