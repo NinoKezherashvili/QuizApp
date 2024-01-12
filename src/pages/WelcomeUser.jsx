@@ -30,16 +30,16 @@ const WelcomeUser = () => {
             <h3 className={styles.Hfont}>Welcome user {user.fullName}</h3>
 
             <div className={styles.navigation}>
-              <Link className={styles.Hfont} to="/createquiz">
+              <Link className={styles.Hfont} to="/quizapp/createquiz">
                 Create Quiz
               </Link>
-              <Link className={styles.Hfont} to="/myLibrary">
+              <Link className={styles.Hfont} to="/quizapp/myLibrary">
                 My Library
               </Link>
-              <Link className={styles.Hfont} to="/userScores">
+              <Link className={styles.Hfont} to="/quizapp/userScores">
                 User Scores
               </Link>
-              <Link className={styles.Hfont} to="/managecategories">
+              <Link className={styles.Hfont} to="/quizapp/managecategories">
                 Manage categories
               </Link>
             </div>

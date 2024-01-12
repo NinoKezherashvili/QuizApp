@@ -68,7 +68,7 @@ const Login = () => {
         </button>
         {error && <div style={{ color: "red" }}> {error}</div>}
 
-        <Link to="/signup" className={styles.navigateLogin}>
+        <Link to="/quizapp/signup" className={styles.navigateLogin}>
           Don't have an account?
         </Link>
       </form>

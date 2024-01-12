@@ -51,7 +51,7 @@ function GetCategories() {
             <div key={quiz._uuid} className={styles.quiz}>
               <h3>{quiz.quizname}</h3>
               <Link
-                to={`/editquiz/${encodeURIComponent(quiz._uuid)}`}
+                to={`/quizapp/editquiz/${encodeURIComponent(quiz._uuid)}`}
               >
                 Edit
               </Link>

@@ -13,14 +13,14 @@ const Modal = ({ isOpen, onClose }) => {
           X
         </span>{" "}
         <Link
-          to="./login"
+          to="/quizapp/login"
           className={`${styles.f20} ${styles.f200} ${styles.cWhite}   ${styles.login} `}
         >
           Login
         </Link>
         <p className={`${styles.f20} ${styles.f200} `}>Don't have an account?</p>
         <Link
-          to="./signup"
+          to="/quizapp/signup"
           className={`${styles.f20} ${styles.f200} ${styles.cBlack}`}
         >
           Sign up
