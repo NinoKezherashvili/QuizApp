@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createData } from "../store/signup/createData.thunk";
 import { Link, useNavigate } from "react-router-dom";
