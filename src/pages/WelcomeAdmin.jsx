@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import GetCategories from "./GetCategoriesAdmin";
 import styles from "../styles/homepageadmin.module.css";
+import Sidebar from "../pages/Sidebar";
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -20,44 +21,25 @@ const WelcomeAdmin = () => {
     localStorage.removeItem("user");
     setUser(null);
   };
+
   return (
-   
-
-   <>
+    <>
       {user ? (
-        <div className={styles.dflex}>
-          <aside className={styles.Hsettings}>
-          {/* <div className={styles.overlay}></div>  */}
-
-
-            <h3 className={`${styles.Hfont} ${styles.zindex} `}>Welcome user {user.fullName}</h3>
-
-            <div className={styles.navigation}>
-              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/quizapp/createquiz">
-                Create Quiz
-              </Link>
-              
-              <Link className={`${styles.Hfont} ${styles.zindex} `} to="/quizapp/userScores">
-                User Scores
-              </Link>
-              <Link className={styles.Hfont} to="/quizapp/managecategories">
-                Manage categories
-              </Link>
-            </div>
+        <div className={styles.container}>
+          <div className={styles.sidebar}>
+            <Sidebar />
+          </div>
+          <div className={styles.content}>
+            <GetCategories />
             <button className={styles.Hbutton} onClick={handleLogout}>
               Logout
             </button>
-          </aside>
-          <GetCategories />
+          </div>
         </div>
       ) : (
         navigate("/quizapp")
       )}
     </>
-
-     
-  
   );
 };
-
 export default WelcomeAdmin;

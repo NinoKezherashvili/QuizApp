@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&");
+
+.Hsettings {
+  display: flex;
+  flex-direction: column;
+  background-color: #4f356e;
+  width: 20%;
+  position: relative;
+}
+
+body {
+  color: black;
+  text-decoration: none;
+  margin-bottom: 100px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.Hfont {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 100px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.Hbutton {
+  width: 60px;
+  right: 0;
+  background-color: white;
+  text-decoration: none;
+  border: transparent;
+  cursor: pointer;
+}
+
+.navigation > * {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.dflex {
+  display: flex;
+}
+
+.dis > * {
+  display: flex;
+  width: 400px;
+  height: 200px;
+  background-color: #d9d9d9;
+  margin-top: 50px;
+  margin-left: 60px;
+}
+
+.quiz {
+  border: 1px solid #4f356e;
+  border-radius: 15px;
+  width: 300px;
+  height: 300px;
+  background-color: #d9d9d9;
+}
+
+.dcolumn {
+  flex-direction: column;
+}
+
+.dgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 30px;
+}
+
+.overlay {
+  content: "";
+  position: absolute;
+  width: 30%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #d9d9d9;
+  z-index: 1;
+}
+
+.zindex {
+  z-index: 2;
+}
+.quizimage {
+  height: 65%;
+  background-color: #d9d9d9;
+  border-radius: 15px;
+}
+
+.quizdetails {
+  background-color: white;
+  height: 25%;
+  border-bottom: 1px solid #7851a9;
+}
+
+.quizname {
+  font-size: 20px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.linkedit {
+  font-size: 14px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 200;
+  text-decoration: none;
+}

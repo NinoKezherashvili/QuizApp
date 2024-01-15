@@ -1,8 +1,7 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import styles from "../styles/homepageadmin.module.css"
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "../styles/getcategoriesadmin.module.css";
 
 function GetCategories() {
   const [categories, setCategories] = useState([]);
@@ -25,15 +24,23 @@ function GetCategories() {
           if (!acc[category]) {
             acc[category] = [];
           }
-          const { _created, _data_type, _is_deleted, _modified, _self_link, _user, category: quizCategory, ...quizInfo } = quiz;
+          const {
+            _created,
+            _data_type,
+            _is_deleted,
+            _modified,
+            _self_link,
+            _user,
+            category: quizCategory,
+            ...quizInfo
+          } = quiz;
           acc[category].push(quizInfo);
 
           return acc;
         }, {});
 
         setCategories(groupedQuizzes);
-        console.log(groupedQuizzes)
-
+        console.log(groupedQuizzes);
       } catch (error) {
         console.error("Error fetching tasks:", error.message);
       }
@@ -47,18 +54,24 @@ function GetCategories() {
         <div key={category} className={`${styles.dflex} ${styles.dcolumn}`}>
           <h2>{category}</h2>
           <div className={`${styles.dgrid}`}>
-          {quizzes.map((quiz) => (
-            <div key={quiz._uuid} className={styles.quiz}>
-              <h3>{quiz.quizname}</h3>
-              <Link
-                to={`/quizapp/editquiz/${encodeURIComponent(quiz._uuid)}`}
-              >
-                Edit
-              </Link>
-            </div>
-          ))}
+            {quizzes.map((quiz) => (
+              <div key={quiz._uuid} className={styles.quiz}>
+                <div className={styles.quizimage}></div>
+                <div className={styles.quizdetails}>
+                  <div>
+                    <h3 className={styles.quizname}>{quiz.quizname}</h3>
+                  </div>
+
+                  <Link
+                    className={styles.linkedit}
+                    to={`/quizapp/editquiz/${encodeURIComponent(quiz._uuid)}`}
+                  >
+                    Edit
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-         
         </div>
       ))}
     </div>

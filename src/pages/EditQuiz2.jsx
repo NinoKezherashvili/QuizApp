@@ -77,7 +77,10 @@ const EditQuiz2 = () => {
   return (
     <>
       <nav>
-        <Link to="/welcomeuser" className={`${styles.f30} ${styles.f200} `}>
+        <Link
+          to="/QuizApp/welcomeadmin"
+          className={`${styles.f30} ${styles.f200} `}
+        >
           Quizz
         </Link>
       </nav>
