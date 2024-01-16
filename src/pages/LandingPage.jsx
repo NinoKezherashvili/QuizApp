@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/landingpage.module.css";
 import img from "../images/quiz.png";
+import arrow from "../images/arrow_right_alt.png";
 
 const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -16,15 +17,27 @@ const Modal = ({ isOpen, onClose }) => {
           to="/quizapp/login"
           className={`${styles.f20} ${styles.f200} ${styles.cWhite}   ${styles.login} `}
         >
-          Login
+          Log In
         </Link>
-        <p className={`${styles.f20} ${styles.f200} `}>Don't have an account?</p>
-        <Link
-          to="/quizapp/signup"
-          className={`${styles.f20} ${styles.f200} ${styles.cBlack}`}
-        >
-          Sign up
-        </Link>
+        <div className={styles.greenLine}></div>
+        <p className={`${styles.f20} ${styles.f200} `}>
+          Don't have an account?
+        </p>
+        <div className={styles.signupnavigation}>
+          <Link
+            to="/quizapp/signup"
+            className={`${styles.f20} ${styles.f200} ${styles.cBlack} ${styles.signup}`}
+          >
+            Sign up
+          </Link>
+
+          <Link
+            to="/quizapp/signup"
+            className={`${styles.f20} ${styles.f200} ${styles.cBlack} ${styles.signup}`}
+          >
+            <img src={arrow} alt="arrow for sign upF" />
+          </Link>
+        </div>
       </div>
     </div>
   );

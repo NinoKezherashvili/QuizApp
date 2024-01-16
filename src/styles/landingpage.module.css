@@ -98,7 +98,6 @@ nav {
   align-items: center;
   justify-content: center;
   z-index: 1;
- 
 }
 
 .modalContent {
@@ -113,7 +112,8 @@ nav {
   align-items: center;
   background-color: #d9d9d9;
   justify-content: center;
-  border-radius: 18px
+  border-radius: 18px;
+  position: relative;
 }
 
 .closeButton {
@@ -122,6 +122,8 @@ nav {
   right: 10px;
   font-size: 20px;
   cursor: pointer;
+  color: #4f356e;
+  font-weight: bold;
 }
 
 .closeButton:hover {
@@ -133,20 +135,45 @@ nav {
   border: 1px solid black;
   padding: 10px 200px;
   margin-bottom: 30px;
-  background-color: #4F356E;
-  color:white;
-
+  background-color: #977DBA;
+  color: white;
 }
-
 
 .loginButton {
   background-color: transparent;
-color:white;
-border: 0;
+  color: white;
+  border: 0;
   cursor: pointer;
 }
 
 .navigation {
-  background-color: #4F356E;
+  background-color: #977DBA;
   height: 10vh;
 }
+
+.greenLine {
+  display: block;
+  height: 1px;
+  background-color: #23ce7c;
+  width: 40%;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+.signup {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 200;
+  margin-right: 10px;
+}
+
+.signupnavigation {
+  display: flex;
+ width: auto;
+}
+
+.signupnavigation img{
+ width: auto;
+}
+

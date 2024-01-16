@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { loginUser } from "../store/login/UserSlice";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/login.module.css"
+import styles from "../styles/login.module.css";
+import thumbpin from "../images/Thumbpin.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,9 +12,9 @@ const Login = () => {
     e.preventDefault();
 
     dispatch(loginUser(email)).then((result) => {
-      console.log(result)
+      console.log(result);
       if (result.payload && result.payload[0].role) {
-        if (result.payload.role === "admin") {
+        if (result.payload[0].role === "admin") {
           setEmail("");
           setPwd("");
           navigate("/quizapp/welcomeadmin");
@@ -38,10 +39,9 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-    
-
       <form onSubmit={handleSubmit} className={styles.form}>
-      <h1 className={styles.bFont}>Login</h1>
+        <h1 className={styles.bFont}>Log In</h1>
+        <img src={thumbpin} className={styles.thumbpin} alt="thumb pin" />
         <input
           type="text"
           id="username"
@@ -62,17 +62,16 @@ const Login = () => {
           className={styles.authInput}
         />
 
-
-        <button type="submit"   className={styles.authButton}>
+        <button type="submit" className={styles.authButton}>
           {loading ? "Loading..." : "Log In"}
         </button>
         {error && <div style={{ color: "red" }}> {error}</div>}
 
         <Link to="/quizapp/signup" className={styles.navigateLogin}>
-          Don't have an account?
+          Don't have an account? &nbsp;&nbsp; <span>Sign Up</span>
         </Link>
       </form>
-   </div>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../styles/managecategories.module.css";
+import Sidebar from "./Sidebar";
 
 const Modal = ({
   isOpen,
@@ -53,8 +54,6 @@ const ManageCategories = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-
-
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -81,12 +80,12 @@ const ManageCategories = () => {
 
   const handleSave = async () => {
     try {
-      console.log(newCategory); 
-      console.log(categories); 
+      console.log(newCategory);
+      console.log(categories);
 
       const response = await axios.post(
         "https://crudapi.co.uk/api/v1/categories",
-        [{category: newCategory}],
+        [{ category: newCategory }],
         {
           headers: {
             "Content-Type": "application/json",
@@ -107,24 +106,30 @@ const ManageCategories = () => {
   };
 
   return (
-    <div>
-      <h2>All Categories</h2>
+    <div className={styles.container}>
+      <div className={styles.sidebar}>
+        <Sidebar />
+      </div>
 
-      {categories.map((category) => (
-        <button key={category._uuid} >{category.category}</button>
-      ))}
+      <div className={styles.content}>
+        <h2>All Categories</h2>
 
-      <button onClick={toggleModal}>+</button>
-     
-      <Modal
-        isOpen={isModalOpen}
-        onClose={toggleModal}
-        categories={categories}
-        handleSave={handleSave}
-        showSuccess={showSuccess}
-        newCategory={newCategory}
-        setNewCategory={setNewCategory}
-      />
+        {categories.map((category) => (
+          <button key={category._uuid}>{category.category}</button>
+        ))}
+
+        <button onClick={toggleModal}>+</button>
+
+        <Modal
+          isOpen={isModalOpen}
+          onClose={toggleModal}
+          categories={categories}
+          handleSave={handleSave}
+          showSuccess={showSuccess}
+          newCategory={newCategory}
+          setNewCategory={setNewCategory}
+        />
+      </div>
     </div>
   );
 };
