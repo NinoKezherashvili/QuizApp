@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { loginUser } from "../store/login/UserSlice";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/login.module.css";
+import thumbpin from "../images/Thumbpin.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -39,7 +40,8 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h1 className={styles.bFont}>Login</h1>
+        <h1 className={styles.bFont}>Log In</h1>
+        <img src={thumbpin} className={styles.thumbpin} alt="thumb pin" />
         <input
           type="text"
           id="username"
@@ -66,7 +68,7 @@ const Login = () => {
         {error && <div style={{ color: "red" }}> {error}</div>}
 
         <Link to="/quizapp/signup" className={styles.navigateLogin}>
-          Don't have an account?
+          Don't have an account? &nbsp;&nbsp; <span>Sign Up</span>
         </Link>
       </form>
     </div>

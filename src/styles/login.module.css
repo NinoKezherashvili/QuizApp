@@ -31,6 +31,7 @@ body {
   font-family: Inter;
   font-size: 20px;
   font-weight: 400;
+  position: relative;
 }
 
 .bFont {
@@ -38,54 +39,64 @@ body {
 }
 
 .authInput {
-    min-width: 70%;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px;
-    margin-bottom: 15px;
-    font-weight: 200;
-    cursor: pointer;
-    background-color: white;
-    border: 1px solid #4F356E;
-
+  min-width: 70%;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px;
+  margin-bottom: 15px;
+  font-weight: 200;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #4f356e;
 }
 
-.authButton{
-    min-width: 80%;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px;
-    color: white;
-    margin-bottom: 25px;
-    font-weight: 200;
-    cursor: pointer;
-    background-color: #4F356E;
-    margin-top: 40px;
+.authButton {
+  min-width: 80%;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px;
+  color: white;
+  margin-bottom: 25px;
+  font-weight: 200;
+  cursor: pointer;
+  background-color: #4f356e;
+  margin-top: 40px;
 }
 
 .courseSelect {
-    min-width: 80%;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 16px;
-    border-radius: 10px;
-    border: 1px;
-    margin-bottom: 25px;
-    font-weight: 200;
-    cursor: pointer;
-    border: 1px solid #4F356E;
+  min-width: 80%;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px;
+  margin-bottom: 25px;
+  font-weight: 200;
+  cursor: pointer;
+  border: 1px solid #4f356e;
 }
 
 .selectPlaceholder {
-    color: #4F356E;
-
+  color: #4f356e;
 }
 
 .navigateLogin {
-    text-decoration: none;
-    font-size: 14px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.thumbpin {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  right: 0;
+}
+
+.navigateLogin span {
+  text-decoration: underline;
 }

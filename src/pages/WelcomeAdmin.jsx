@@ -15,12 +15,8 @@ const getUser = () => {
 };
 
 const WelcomeAdmin = () => {
-  const [user, setUser] = useState(getUser());
+  const [user] = useState(getUser());
   const navigate = useNavigate();
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-  };
 
   return (
     <>
@@ -31,9 +27,6 @@ const WelcomeAdmin = () => {
           </div>
           <div className={styles.content}>
             <GetCategories />
-            <button className={styles.Hbutton} onClick={handleLogout}>
-              Logout
-            </button>
           </div>
         </div>
       ) : (

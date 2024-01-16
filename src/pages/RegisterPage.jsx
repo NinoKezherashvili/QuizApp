@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { createData } from "../store/signup/createData.thunk";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../styles/register.module.css";
+import thumbpin from "../images/Thumbpin.png";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -61,10 +62,13 @@ const RegisterPage = () => {
 
   return (
     <div className={styles.container}>
+       
       <form onSubmit={handleSubmit} className={styles.form}>
         <h1 id="register-h1" className={styles.bFont}>
-          Sign Up{" "}
+        <img src={thumbpin} className={styles.thumbpin} alt="thumb pin" />
+          Sign Up
         </h1>
+      
         <input
           type="text"
           className={styles.authInput}

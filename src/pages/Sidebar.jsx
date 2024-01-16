@@ -2,11 +2,13 @@ import styles from "../styles/sidebar.module.css";
 import { useState } from "react";
 
 import avatar from "../images/avatar..png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import category from "../images/category.png";
 import security from "../images/security.png";
 import person from "../images/person.png";
 import arrow from "../images/arrow_forward_ios (2).png";
+import scores from "../images/emoji_events.png";
+import logout from "../images/logout.png";
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -18,6 +20,7 @@ const getUser = () => {
   }
   return user;
 };
+
 const Modal = ({ isOpen, onClose, categories, handleSave, showSuccess }) => {
   if (!isOpen) return null;
 
@@ -58,11 +61,19 @@ const Modal = ({ isOpen, onClose, categories, handleSave, showSuccess }) => {
 };
 
 const Sidebar = () => {
-  const [user] = useState(getUser());
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  const [user, setUser] = useState(getUser());
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/Quizapp");
   };
 
   return (
@@ -73,21 +84,29 @@ const Sidebar = () => {
             <img src={avatar} alt="avatar" />
           </button>
 
-          <h3>{user.fullname}</h3>
+          <h3>{user && user.fullname}</h3>
           <Modal isOpen={isModalOpen} onClose={toggleModal} />
         </div>
         <span className={styles.navspan}>
           <div className={styles.sidebarNavigation}>
-            <img src={category} alt="category-icon" />
+            <img src={category} alt="manage categories" />
             <Link to={"/quizApp/managecategories"} className={styles.link}>
               Quiz Categories
             </Link>
           </div>
-          <div className={styles.sidebarNavigation}>
-            <img src={category} alt="category-icon" />
+          <div
+            className={`${styles.sidebarNavigation} ${styles.marginBottom}  `}
+          >
+            <img src={scores} alt="user scores" />
             <Link to={"/"} className={styles.link}>
               User Scores
             </Link>
+          </div>
+          <div className={styles.sidebarNavigation}>
+            <img src={logout} alt="logout" />
+            <button onClick={handleLogout} className={styles.logoutbutton}>
+              Log Out
+            </button>
           </div>
         </span>
       </div>
