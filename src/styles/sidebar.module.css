@@ -95,7 +95,7 @@
   width: 700px;
   max-width: 100%;
   height: 400px;
-  overflow-y: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,14 +103,7 @@
   justify-content: center;
   border-radius: 18px;
   border: 1px solid #23ce7c;
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
+  position: relative;
 }
 
 .closeButton:hover {
@@ -130,13 +123,16 @@
 ul {
   list-style-type: none;
   width: 100%;
-  padding: 0 50px;
+  padding: 0;
+  height: 100%;
+  margin: 0;
+
+  margin-top: 90px;
 }
 
 .linkNavigation {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 
 .linkNavigation div {
@@ -148,9 +144,9 @@ ul {
   margin-right: 10px;
 }
 
-.arrow {
-  width: 25px;
-  height: 30px;
+.linkNavigation .arrow {
+  width: 20px;
+  height: 15px;
 }
 
 .sidebarbutton {
@@ -173,7 +169,15 @@ h3 {
   margin-top: -16px;
 }
 
-
-.marginBottom{
+.marginBottom {
   margin-bottom: 250px;
 }
+
+.thumbspin {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+}
+

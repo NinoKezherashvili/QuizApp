@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400&");
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,6 @@
 .userdata {
   display: flex;
   flex-direction: column;
-  margin-bottom: 7%;
   align-items: center;
   width: 100%;
 }
@@ -26,23 +27,23 @@ img {
   background-color: #d9d9d9;
   border-radius: 12px;
   list-style-type: none;
-  padding: 0 20px 0 10px;
   width: 600px;
   margin-bottom: 15px;
-  padding: 8px 0;
+  padding: 15px 0;
   margin-left: 0;
 }
 
 .language ul {
-padding: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .userdata input {
-  width: 50%;
-  border: 1px solid #4f356e;
+  width: 60%;
+  border: 1px solid #977dba;
   border-radius: 6px;
-  margin-bottom: 15px;
-  padding: 10px 0;
+  margin-bottom: 12px;
+  padding: 15px 0;
 }
 
 .profilenavigation {
@@ -56,9 +57,22 @@ padding: 0;
 }
 
 .profilenavigation h1 {
-  margin-left: 40%;
+  margin-left: 27%;
 }
 
-.backlink {
-  height: 10px;
+.profilebackarrow {
+  width: 20px;
+  height: 20px;
+  margin-left: -200px;
+}
+.profilenavigation a {
+  margin-top: 30px;
+}
+
+.userdata h3 {
+  text-align: left;
+  width: 60%;
+  font-size: 10px;
+  color: #977dba;
+  font-family: Inter;
 }

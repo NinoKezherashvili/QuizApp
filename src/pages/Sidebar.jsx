@@ -3,12 +3,15 @@ import { useState } from "react";
 
 import avatar from "../images/avatar..png";
 import { Link, useNavigate } from "react-router-dom";
-import category from "../images/category.png";
-import security from "../images/security.png";
-import person from "../images/person.png";
-import arrow from "../images/arrow_forward_ios (2).png";
-import scores from "../images/emoji_events.png";
-import logout from "../images/logout.png";
+import category from "../images/category.svg";
+import security from "../images/Frame 7917.svg"
+import person from "../images/Frame 7915.svg";
+import arrow from "../images/arrow_forward_ios.svg"
+import scores from "../images/emoji_events.svg";
+import logout from "../images/logout.svg";
+import thumbspin from "../images/Thumbpin.svg";
+import terms from "../images/Frame 7916.svg";
+import faq from "../images/Frame 7918.svg"
 
 const getUser = () => {
   let user = localStorage.getItem("user");
@@ -27,9 +30,13 @@ const Modal = ({ isOpen, onClose, categories, handleSave, showSuccess }) => {
   return (
     <div className={styles.modalOverlay}>
       <div className={styles.modalContent}>
-        <span className={styles.closeButton} onClick={onClose}>
-          X
-        </span>{" "}
+        <img
+          src={thumbspin}
+          alt="thumb spin"
+          className={styles.thumbspin}
+          onClick={onClose}
+        />
+
         <ul>
           <li className={styles.linkNavigation}>
             <div>
@@ -46,9 +53,29 @@ const Modal = ({ isOpen, onClose, categories, handleSave, showSuccess }) => {
           </li>
           <li className={styles.linkNavigation}>
             <div>
-              <img src={security} alt="person icon" />
+              <img src={security} alt="terms and conditions" />
               <Link to={"/quizapp/security"} className={styles.linkModal}>
                 Security
+              </Link>
+            </div>
+
+            <img src={arrow} className={styles.arrow} alt="person icon" />
+          </li>
+          <li className={styles.linkNavigation}>
+            <div>
+              <img src={terms} alt="change password" />
+              <Link to={"/quizapp/security"} className={styles.linkModal}>
+                Terms and Conditions
+              </Link>
+            </div>
+
+            <img src={arrow} className={styles.arrow} alt="person icon" />
+          </li>
+          <li className={styles.linkNavigation}>
+            <div>
+              <img src={faq} alt="person icon" />
+              <Link to={"/quizapp/security"} className={styles.linkModal}>
+                FAQ
               </Link>
             </div>
 

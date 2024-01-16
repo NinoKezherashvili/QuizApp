@@ -22,14 +22,16 @@ function ProfileSettingsComponent() {
     <div className={styles.profile}>
       <div className={styles.profilenavigation}>
         <Link to={"/QuizApp/welcomeadmin"} className={styles.backlink}>
-          <img src={backarrow} alt="back arrow" />
+          <img src={backarrow} alt="back arrow" className={styles.profilebackarrow} />
         </Link>
         <h1 className={styles.header}>Profile Settings</h1>
       </div>
 
       <div className={styles.userdata}>
         <img src={avatar} alt="avatar" />
+        <h3>Username</h3>
         <input type="text" className={styles.input} placeholder={user.fullname}/>
+        <h3>Email</h3>
         <input type="text" className={styles.input} placeholder={user.email} />
       </div>
 

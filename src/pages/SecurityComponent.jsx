@@ -7,7 +7,7 @@ function ProfileSettingsComponent() {
     <div className={styles.profile}>
       <div className={styles.profilenavigation}>
         <Link to={"/QuizApp/welcomeadmin"} className={styles.backlink}>
-          <img src={backarrow} alt="back arrow" />
+          <img src={backarrow} alt="back arrow" className={styles.securitybackarrow} />
         </Link>
         <h1 className={styles.header}>Security</h1>
       </div>
